@@ -5,11 +5,15 @@ import { CategoryComponent } from './components/category/category.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { ProductComponent } from './components/product/product.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductService } from './services/product.service';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  providers:[
+    ProductService
+  ],
   imports: [
     CommonModule,
     RouterOutlet,
