@@ -15,12 +15,12 @@ export class ProductService {
 
 
   getProducts():Observable<listResponseModel<Product>> { 
-    let newPath = this.apiUrl + "/products/getall";
+    let newPath = this.apiUrl + "products/getall";
     return this.httpClient.get<listResponseModel<Product>>(newPath);
   }
-
+ 
   getProductsByCategory(categoryId:number):Observable<listResponseModel<Product>> { 
-    let newPath = this.apiUrl + "/products/getbycategory?categoryId=" + categoryId;
+    let newPath = this.apiUrl + "products/getbycategory?id=" + categoryId;
     return this.httpClient.get<listResponseModel<Product>>(newPath);
   }
 }
