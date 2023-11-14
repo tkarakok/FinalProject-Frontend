@@ -6,13 +6,15 @@ import { NaviComponent } from './components/navi/navi.component';
 import { ProductComponent } from './components/product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
+import { CategoryService } from './services/category.service';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
   providers:[
-    ProductService
+    ProductService,
+    CategoryService
   ],
   imports: [
     CommonModule,
