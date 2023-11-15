@@ -9,6 +9,7 @@ import { ProductService } from './services/product.service';
 import { CategoryService } from './services/category.service';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FormsModule } from '@angular/forms';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 
 @Component({
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     NaviComponent,
     ProductComponent,
     HttpClientModule,
-    VatAddedPipe
+    VatAddedPipe,
+    FilterPipePipe
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

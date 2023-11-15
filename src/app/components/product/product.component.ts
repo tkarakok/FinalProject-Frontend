@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { VatAddedPipe } from "../../pipes/vat-added.pipe";
 import { FormsModule } from '@angular/forms';
+import { FilterPipePipe } from "../../pipes/filter-pipe.pipe";
 
 
 @Component({
@@ -12,7 +13,7 @@ import { FormsModule } from '@angular/forms';
     standalone: true,
     templateUrl: './product.component.html',
     styleUrl: './product.component.css',
-    imports: [FormsModule,CommonModule, VatAddedPipe]
+    imports: [FormsModule, CommonModule, VatAddedPipe, FilterPipePipe]
 })
 export class ProductComponent implements OnInit 
 {
