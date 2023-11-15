@@ -1,15 +1,21 @@
-<div *ngIf="dataLoaded == false" class="spinner-border text-warning" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label"><b>Search  Product</b></label>
-    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="search">
-  </div>
-  
-  <div *ngIf="filterText" class="alert alert-warning">
-    {{filterText}} searching
-  </div>
+<div class="d-flex justify-content-center">
+    <div *ngIf="dataLoaded == false" class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+
+<div *ngIf="dataLoaded == true" >
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><b>Ürün Ara</b></label>
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="ara">
+    </div>
+    
+    <div *ngIf="filterText" class="alert alert-warning">
+        {{filterText}} aranıyor...
+    </div>
+</div>
+
 
 <table *ngIf="dataLoaded == true" class="table">
     <thead>
@@ -22,12 +28,17 @@
             <th style="text-align: center;">Stok Adedi</th>
         </tr>
     </thead>
-    <tr *ngFor="let product of products | filterPipe:filterText">
-        <!-- <td style="text-align: center;">{{product.productId}}</td> -->
-        <td style="text-align: left;">{{product.productName | uppercase}}</td>
-        <td style="text-align: center;">{{product.categoryId}}</td>
-        <td style="text-align: center;">{{product.unitPrice | currency}}</td>
-        <td style="text-align: center;">{{product.unitPrice | vatAdded:18 |  currency}}</td>
-        <td style="text-align: center;">{{product.unitsInStock}}</td>
-    </tr>
+
+    <tbody>
+        <tr *ngFor="let product of products | filterPipe:filterText">
+            <!-- <td style="text-align: center;">{{product.productId}}</td> -->
+            <td style="text-align: left;">{{product.productName | uppercase}}</td>
+            <td style="text-align: center;">{{product.categoryId}}</td>
+            <td style="text-align: center;">{{product.unitPrice | currency}}</td>
+            <td style="text-align: center;">{{product.unitPrice | vatAdded:18 | currency}}</td>
+            <td style="text-align: center;">{{product.unitsInStock}}</td>
+            <td><button (click)="addToCart(product)" class="btn btn-success">Sepete Ekle</button></td>
+        </tr>
+    </tbody>
+
 </table>

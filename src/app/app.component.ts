@@ -10,14 +10,14 @@ import { CategoryService } from './services/category.service';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FormsModule } from '@angular/forms';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
-
+import { ToastrModule} from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   providers:[
     ProductService,
-    CategoryService
+    CategoryService,
   ],
   imports: [
     FormsModule,
@@ -29,7 +29,9 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     ProductComponent,
     HttpClientModule,
     VatAddedPipe,
-    FilterPipePipe
+    FilterPipePipe,
+    ToastrModule
+    
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
