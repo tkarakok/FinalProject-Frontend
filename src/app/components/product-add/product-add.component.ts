@@ -41,9 +41,16 @@ add(){
     let productModel : Product = Object.assign({},this.productAddForm.value) 
     this.productService.add(productModel).subscribe(response=>{
       this.toastrService.success(response.message)
-    },error=>{
-      console.log(error);
-      this.toastrService.error(error.error)
+    },responseError=>{
+      if(responseError.error.Errors.length > 0)
+      {
+        for (let i = 0; i < responseError.error.Errors.length; i++) {
+          this.toastrService.error(responseError.error.Errors[i].ErrorMessage, " doğrulama hatası")
+          
+        }
+        
+      }
+        
     });
   }
   else{
