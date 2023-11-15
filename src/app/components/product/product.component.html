@@ -2,6 +2,15 @@
     <span class="visually-hidden">Loading...</span>
   </div>
   
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><b>Search  Product</b></label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="search">
+  </div>
+  
+  <div *ngIf="filterText" class="alert alert-warning">
+    {{filterText}} searching
+  </div>
+
 <table *ngIf="dataLoaded == true" class="table">
     <thead>
         <tr>
@@ -9,14 +18,16 @@
             <th style="text-align: center;">Ürün Adı</th>
             <th style="text-align: center;">Kategori</th>
             <th style="text-align: center;">Fiyat</th>
+            <th style="text-align: center;">KDV'li Fiyat</th>
             <th style="text-align: center;">Stok Adedi</th>
         </tr>
     </thead>
     <tr *ngFor="let product of products">
         <!-- <td style="text-align: center;">{{product.productId}}</td> -->
-        <td style="text-align: left;">{{product.productName}}</td>
+        <td style="text-align: left;">{{product.productName | uppercase}}</td>
         <td style="text-align: center;">{{product.categoryId}}</td>
-        <td style="text-align: center;">{{product.unitPrice}}</td>
+        <td style="text-align: center;">{{product.unitPrice | currency}}</td>
+        <td style="text-align: center;">{{product.unitPrice | vatAdded:18 |  currency}}</td>
         <td style="text-align: center;">{{product.unitsInStock}}</td>
     </tr>
 </table>

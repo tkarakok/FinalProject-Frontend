@@ -7,6 +7,8 @@ import { ProductComponent } from './components/product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { CategoryService } from './services/category.service';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -17,13 +19,15 @@ import { CategoryService } from './services/category.service';
     CategoryService
   ],
   imports: [
+    FormsModule,
     RouterModule,
     CommonModule,
     RouterOutlet,
     CategoryComponent,
     NaviComponent,
     ProductComponent,
-    HttpClientModule
+    HttpClientModule,
+    VatAddedPipe
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

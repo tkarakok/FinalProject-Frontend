@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { VatAddedPipe } from "../../pipes/vat-added.pipe";
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-product',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css',
+    selector: 'app-product',
+    standalone: true,
+    templateUrl: './product.component.html',
+    styleUrl: './product.component.css',
+    imports: [FormsModule,CommonModule, VatAddedPipe]
 })
 export class ProductComponent implements OnInit 
 {
   dataLoaded = false;
   products : Product[] = [];
+  filterText = "";
+
   constructor (private productService: ProductService, private activedRoute : ActivatedRoute) {}
 
   ngOnInit(): void {
