@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../models/loginModel';
 import { HttpClient } from '@angular/common/http';
-import { TokenModel } from '../models/tokeModel';
+import { TokenModel } from '../models/tokenModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({

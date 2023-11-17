@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder , FormControl, Validators, FormsModule, Reactive
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-add',
@@ -36,7 +37,7 @@ createProductAddForm() {
   });
 }
 
-add(){
+add(){ 
   if(this.productAddForm.valid){
     let productModel : Product = Object.assign({},this.productAddForm.value) 
     this.productService.add(productModel).subscribe(response=>{
